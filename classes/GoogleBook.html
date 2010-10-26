@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>GoogleBook</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+    <script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            GoogleBook 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/lib/googlebook/finder_rb.html">lib/googlebook/finder.rb</a></li>
+            
+            <li><a href="../files/lib/googlebook/version_rb.html">lib/googlebook/version.rb</a></li>
+            
+            <li><a href="../files/lib/googlebook_rb.html">lib/googlebook.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+A Ruby class in tight embrace with the Google Book Search Data API
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>F</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000000">find</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>I</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000004">isbn</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000003">new</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+        
+        <li>
+            
+            <span>HTTParty</span>
+            
+            START:includes
+        </li>
+        
+    </ul>
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Constants</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class="attr-name">VERSION</td>
+            <td>=</td>
+            <td class="attr-value">&quot;0.0.1&quot;</td>
+        </tr>
+        
+        
+    </table>
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>parameters</td>
+            <td class='attr-desc'><p>
+Query parameters passed on to Google
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>total_results</td>
+            <td class='attr-desc'><p>
+ Total results for last query
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>thumbnail</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>info</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>preview</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>creator</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>date</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>description</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>format</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>identifier</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>publisher</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>subject</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>title</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000000">
+                    
+                    <a name="M000000"></a><b>find</b>(query, opts={})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Queries the Google Book Search Data API
+</p>
+<p>
+Optionally, specify a page and count to (sort-of) paginate through the
+result set.
+</p>
+<pre>
+  GoogleBook.find('deleuze', :page =&gt; 2, :count =&gt; 20)
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000000_source')" id="l_M000000_source">show</a>
+                        
+                        | <a href="http://github.com/papercavalier/GoogleBook/blob/60a42ef9e88784511b21a161801b16fc31f73d08/lib/googlebook/finder.rb#L23" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000000_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/googlebook/finder.rb, line 23</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">query</span>, <span class="ruby-identifier">opts</span>={})
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parameters</span>           = { <span class="ruby-value str">'q'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">query</span> }
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:page</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:page</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">parameters</span>[<span class="ruby-value str">'start-index'</span>] = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:page</span>]
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:count</span>] <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-value">10</span><span class="ruby-operator">..</span><span class="ruby-value">20</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:count</span>].<span class="ruby-identifier">to_i</span>)
+        <span class="ruby-identifier">parameters</span>[<span class="ruby-value str">'max-results'</span>] = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:count</span>]
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">response</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">total_results</span> = <span class="ruby-identifier">response</span>[<span class="ruby-value str">'feed'</span>][<span class="ruby-value str">'openSearch:totalResults'</span>].<span class="ruby-identifier">to_i</span>
+      <span class="ruby-identifier">response</span>[<span class="ruby-value str">'feed'</span>][<span class="ruby-value str">'entry'</span>].<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">book</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">new</span> <span class="ruby-identifier">:thumbnail</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">book</span>[<span class="ruby-value str">'link'</span>][<span class="ruby-value">0</span>][<span class="ruby-value str">'href'</span>],
+            <span class="ruby-identifier">:info</span>         =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">book</span>[<span class="ruby-value str">'link'</span>][<span class="ruby-value">1</span>][<span class="ruby-value str">'href'</span>],
+            <span class="ruby-identifier">:preview</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">book</span>[<span class="ruby-value str">'link'</span>][<span class="ruby-value">2</span>][<span class="ruby-value str">'href'</span>],
+            <span class="ruby-identifier">:creator</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">book</span>[<span class="ruby-value str">'dc:creator'</span>],
+            <span class="ruby-identifier">:date</span>         =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">book</span>[<span class="ruby-value str">'dc:date'</span>],
+            <span class="ruby-identifier">:description</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">book</span>[<span class="ruby-value str">'dc:description'</span>],
+            <span class="ruby-identifier">:format</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">book</span>[<span class="ruby-value str">'dc:format'</span>],
+            <span class="ruby-identifier">:identifier</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">book</span>[<span class="ruby-value str">'dc:identifier'</span>],
+            <span class="ruby-identifier">:publisher</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">book</span>[<span class="ruby-value str">'dc:publisher'</span>],
+            <span class="ruby-identifier">:subject</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">book</span>[<span class="ruby-value str">'dc:subject'</span>],
+            <span class="ruby-identifier">:title</span>        =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">book</span>[<span class="ruby-value str">'dc:title'</span>]
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000003">
+                    
+                    <a name="M000003"></a><b>new</b>(args={})
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000003_source')" id="l_M000003_source">show</a>
+                        
+                        | <a href="http://github.com/papercavalier/GoogleBook/blob/60a42ef9e88784511b21a161801b16fc31f73d08/lib/googlebook.rb#L17" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000003_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/googlebook.rb, line 17</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">args</span>={})
+    <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span> <span class="ruby-node">&quot;#{k}=&quot;</span>, <span class="ruby-identifier">v</span> }
+  <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000004">
+                    
+                    <a name="M000004"></a><b>isbn</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000004_source')" id="l_M000004_source">show</a>
+                        
+                        | <a href="http://github.com/papercavalier/GoogleBook/blob/60a42ef9e88784511b21a161801b16fc31f73d08/lib/googlebook.rb#L21" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000004_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/googlebook.rb, line 21</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">isbn</span>
+    <span class="ruby-identifier">identifier</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/ISBN:([0-9]{13})/</span>) }; <span class="ruby-identifier">$1</span>
+  <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    
