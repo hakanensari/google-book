@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Hakan Ensari"]
   s.email       = ["hakan.ensari@papercavalier.com"]
-  s.homepage    = "http://github.com/papercavalier/googlebook"
+  s.homepage    = "http://gloss.papercavalier.com/googlebook"
   s.summary     = %q{A Ruby class in tight embrace with the Google Book Search Data API}
   s.description = %q{Google Book is a Ruby class in tight embrace with the Google Book Search Data API.}
 
