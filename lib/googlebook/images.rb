@@ -7,7 +7,7 @@ module GoogleBook
     end
 
     def thumbnail
-      url
+      zoom(5)
     end
 
     def small
@@ -25,7 +25,7 @@ module GoogleBook
     private
 
     def zoom(level)
-      url.gsub('zoom=5', "zoom=#{level}")
+      url.gsub('zoom=5', "zoom=#{level}").gsub('&edge=curl', '')
     end
   end
 end
