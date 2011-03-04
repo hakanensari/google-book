@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe GoogleBook do
-  use_vcr_cassette 'googlebook', :record => :new_episodes
+module GoogleBook
+  describe "Finder module" do
+    use_vcr_cassette 'googlebook'
 
-  context "Finder" do
     it "should escape parameters" do
       GoogleBook.find('foo bar')
       GoogleBook.send(:query).should include 'foo+bar'
@@ -19,14 +19,14 @@ describe GoogleBook do
       GoogleBook.send(:query).should include 'max-results=20'
     end
 
-    it "should validate page" do
+    it "should filter out invalid pages" do
       %w{-1 0 foo}.each do |page|
         GoogleBook.find('foo bar', :page => page)
         GoogleBook.send(:query).should_not include 'start-index'
       end
     end
 
-    it "should validate results per page" do
+    it "should filter out invalid counts" do
       %w{9 21 foo}.each do |count|
         GoogleBook.find('foo bar', :count => count)
         GoogleBook.send(:query).should_not include 'max-results'
@@ -39,7 +39,7 @@ describe GoogleBook do
     end
 
     it "should return books" do
-      GoogleBook.find('deleuze').first.should be_an_instance_of GoogleBook
+      GoogleBook.find('deleuze').first.should be_an_instance_of Book
     end
   end
 end

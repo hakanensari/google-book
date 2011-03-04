@@ -2,26 +2,30 @@ require 'cgi'
 require 'httparty'
 
 # A classy finder
-class GoogleBook
+module GoogleBook
   include HTTParty
   format :xml
 
   class << self
+
     # Query parameters passed on to Google
     attr_accessor :parameters
 
-    # Total results for last query
+    # Total results for query
     attr_accessor :total_results
 
-    # Queries the Google Book Search Data API
+    # The query response
+    attr_accessor :response
+
+    # Queries the Google Book Search Data API.
     #
-    # Optionally, specify a page and count to (sort-of) paginate through
+    # Optionally, specify a page and count to paginate through
     # the result set.
     #
     #   GoogleBook.find('deleuze', :page => 2, :count => 20)
     #
     def find(query, opts={})
-      self.parameters           = { 'q' => query }
+      self.parameters = { 'q' => query }
 
       if opts[:page] && opts[:page].to_i > 0
         parameters['start-index'] = opts[:page]
@@ -31,20 +35,23 @@ class GoogleBook
         parameters['max-results'] = opts[:count]
       end
 
-      response = self.get(uri.to_s)
+      self.response = self.get(uri.to_s)
+
       self.total_results = response['feed']['openSearch:totalResults'].to_i
+
       response['feed']['entry'].map do |book|
-        new :thumbnail    => book['link'][0]['href'],
-            :info         => book['link'][1]['href'],
-            :preview      => book['link'][2]['href'],
-            :creator      => book['dc:creator'],
-            :date         => book['dc:date'],
-            :description  => book['dc:description'],
-            :format       => book['dc:format'],
-            :identifier   => book['dc:identifier'],
-            :publisher    => book['dc:publisher'],
-            :subject      => book['dc:subject'],
-            :title        => book['dc:title']
+        Book.new(
+          :images       => Images.new(book['link'][0]['href']),
+          :info         => book['link'][1]['href'],
+          :preview      => book['link'][2]['href'],
+          :creator      => book['dc:creator'],
+          :date         => book['dc:date'],
+          :description  => book['dc:description'],
+          :format       => book['dc:format'],
+          :identifier   => book['dc:identifier'],
+          :publisher    => book['dc:publisher'],
+          :subject      => book['dc:subject'],
+          :title        => book['dc:title'])
       end
     end
 
