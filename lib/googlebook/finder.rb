@@ -44,14 +44,14 @@ module GoogleBook
           Images.new(book['link'][0]['href']),
           book['link'][1]['href'],
           book['link'][2]['href'],
-          book['dc:creator'],
+          [book['dc:creator']].flatten.join(', '),
           book['dc:date'],
           book['dc:description'],
           book['dc:format'],
           book['dc:identifier'],
           book['dc:publisher'],
           book['dc:subject'],
-          book['dc:title'])
+          [book['dc:title']].flatten.join(': '))
       end
     end
 
