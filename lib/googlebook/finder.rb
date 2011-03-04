@@ -47,7 +47,7 @@ module GoogleBook
           [book['dc:creator']].flatten.join(', '),
           book['dc:date'],
           book['dc:description'],
-          book['dc:format'],
+          [book['dc:format']].flatten.reject { |format| format == 'book' }.join(', '),
           book['dc:identifier'],
           book['dc:publisher'],
           book['dc:subject'],
