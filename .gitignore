@@ -2,3 +2,4 @@ pkg/*
 *.gem
 .bundle
 spec/fixtures/cassette_library/*.yml
+Gemfile.lock
