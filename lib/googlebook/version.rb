@@ -1,3 +1,3 @@
-class GoogleBook
-  VERSION = "0.0.1"
+module GoogleBook
+  VERSION = '0.1.0'
 end
