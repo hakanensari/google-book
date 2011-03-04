@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Paper Cavalier']
   s.email       = ['code@papercavalier.com']
-  s.homepage    = 'http://rubygems.com/gems/googlebook'
+  s.homepage    = 'http://rubygems.org/gems/googlebook'
   s.summary     = %q{A Ruby wrapper to the Google Book Search Data API}
   s.description = %q{Google Book is a Ruby wrapper to the Google Book Search Data API.}
 
