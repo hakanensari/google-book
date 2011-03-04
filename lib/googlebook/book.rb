@@ -11,10 +11,6 @@ module GoogleBook
                           :subject,
                           :title
 
-    def initialize(args={})
-      args.each { |k, v| self.send "#{k}=", v }
-    end
-
     def isbn
       @isbn ||= find_isbn
     end

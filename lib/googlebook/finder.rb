@@ -41,17 +41,17 @@ module GoogleBook
 
       response['feed']['entry'].map do |book|
         Book.new(
-          :images       => Images.new(book['link'][0]['href']),
-          :info         => book['link'][1]['href'],
-          :preview      => book['link'][2]['href'],
-          :creator      => book['dc:creator'],
-          :date         => book['dc:date'],
-          :description  => book['dc:description'],
-          :format       => book['dc:format'],
-          :identifier   => book['dc:identifier'],
-          :publisher    => book['dc:publisher'],
-          :subject      => book['dc:subject'],
-          :title        => book['dc:title'])
+          Images.new(book['link'][0]['href']),
+          book['link'][1]['href'],
+          book['link'][2]['href'],
+          book['dc:creator'],
+          book['dc:date'],
+          book['dc:description'],
+          book['dc:format'],
+          book['dc:identifier'],
+          book['dc:publisher'],
+          book['dc:subject'],
+          book['dc:title'])
       end
     end
 
