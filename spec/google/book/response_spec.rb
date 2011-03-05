@@ -15,7 +15,11 @@ module Google
 
       it "should return books" do
         books = response.to_books
-        books.first.should be_an_instance_of Struct
+        books.first.should be_a Struct
+      end
+
+      it "should handle single matches" do
+        Request.find('9780826490780').to_books.first.should be_a Struct
       end
     end
   end

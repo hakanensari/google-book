@@ -6,7 +6,7 @@ module Google
       end
 
       def to_books
-        @feed['entry'].map do |hash|
+        [@feed['entry']].flatten.map do |hash|
           book = Struct.new(
             Cover.new(hash['link'][0]['href']),
             hash['link'][1]['href'],
