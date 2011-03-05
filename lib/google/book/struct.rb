@@ -27,9 +27,12 @@ module Google
       def formatted_publisher
         publisher.
           gsub(/[ ,]+Inc.?$/, '').
+          gsub(/[ ,]+Llc.?$/i, '').
+          gsub(/[ ,]+Ltd.?$/, '').
           gsub(/Intl( |$)/) { "International#{$1}" }.
           gsub(/Pr( |$)/) { "Press#{$1}" }.
           gsub(/ Pub$/, ' Publishers').
+          gsub(/ Pubns$/, ' Publications').
           gsub('Pub Group', 'Publishing Group').
           gsub(/Univ( |$)/) { "University#{$1}" }
       end

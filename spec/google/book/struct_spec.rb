@@ -36,12 +36,25 @@ module Google
       end
 
       describe "#formatted_publisher" do
-        it "should drop Inc at the end of the word" do
+        it "should drop Inc at the end of the name" do
           book.publisher = 'Publisher Inc'
           book.formatted_publisher.should eql 'Publisher'
 
           book.publisher = 'Random House, Inc.'
           book.formatted_publisher.should eql 'Random House'
+        end
+
+        it "should drop Llc at the end of the name" do
+          book.publisher = 'Publisher Llc'
+          book.formatted_publisher.should eql 'Publisher'
+
+          book.publisher = 'Publisher LLC'
+          book.formatted_publisher.should eql 'Publisher'
+        end
+
+        it "should drop Ltd at the end of the name" do
+          book.publisher = 'Publisher Ltd'
+          book.formatted_publisher.should eql 'Publisher'
         end
 
         it "should format Intl" do
@@ -54,9 +67,14 @@ module Google
           book.formatted_publisher.should eql 'Polity Press'
         end
 
-        it "should format Pub" do
+        it "should format Pub at the end of the name" do
           book.publisher = 'Rowman & Littlefield Pub'
           book.formatted_publisher.should eql 'Rowman & Littlefield Publishers'
+        end
+
+        it "should format Pubns at the end of the name" do
+          book.publisher = 'Publisher Pubns'
+          book.formatted_publisher.should eql 'Publisher Publications'
         end
 
         it "should format Pub Group" do
@@ -64,12 +82,12 @@ module Google
           book.formatted_publisher.should eql 'Continuum International Publishing Group'
         end
 
-        it "should format Univ in the middle of the word" do
+        it "should format Univ in the middle of the name" do
           book.publisher = 'Columbia Univ Press'
           book.formatted_publisher.should eql 'Columbia University Press'
         end
 
-        it "should format Univ at the end of the word" do
+        it "should format Univ at the end of the name" do
           book.publisher = 'Columbia Univ'
           book.formatted_publisher.should eql 'Columbia University'
         end
