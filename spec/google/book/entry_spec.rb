@@ -11,7 +11,7 @@ module Google
 
       subject { Book.search('deleuze').first }
 
-      %w{cover creators date description format info_url preview_url publisher
+      %w{cover creators date description format info preview publisher
         subjects title isbn}.each do |attribute|
         it { should respond_to attribute }
       end

@@ -30,11 +30,11 @@ module Google
         end.join(', ')
       end
 
-      def info_url
+      def info
         @hash['link'][1]['href']
       end
 
-      def preview_url
+      def preview
         @hash['link'][2]['href']
       end
 
