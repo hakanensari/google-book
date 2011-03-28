@@ -10,13 +10,6 @@ module Google
       end
 
       def each(&block)
-        members =
-          if total_results == 0
-            []
-          else
-            [@feed['entry']].flatten
-          end
-
         members.each do |member|
           block.call(Entry.new(member))
         end
@@ -24,6 +17,16 @@ module Google
 
       def total_results
         @feed['openSearch:totalResults'].to_i
+      end
+
+      private
+
+      def members
+        if total_results == 0
+          []
+        else
+          [@feed['entry']].flatten
+        end
       end
     end
   end
