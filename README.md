@@ -6,6 +6,8 @@ Google Book is a Ruby wrapper to the [Google Book Search Data API](http://code.g
 Usage
 -----
 
+    require 'google/book'
+
     entries = Google::Book.search('deleuze')
     entry = entries.first
 
