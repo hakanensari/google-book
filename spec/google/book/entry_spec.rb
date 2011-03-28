@@ -148,6 +148,10 @@ module Google
 
           entry.publisher.should eql 'Publisher University'
         end
+
+        it "should return nil if there is no publisher" do
+          entry.publisher.should be_nil
+        end
       end
 
       describe "#title" do

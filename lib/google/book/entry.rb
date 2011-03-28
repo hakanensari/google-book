@@ -39,16 +39,20 @@ module Google
       end
 
       def publisher
-        @hash['dc:publisher'].
-          gsub(/[ ,]+Inc.?$/, '').
-          gsub(/[ ,]+Llc.?$/i, '').
-          gsub(/[ ,]+Ltd.?$/, '').
-          gsub(/Intl( |$)/) { "International#{$1}" }.
-          gsub(/Pr( |$)/) { "Press#{$1}" }.
-          gsub(/ Pub$/, ' Publishers').
-          gsub(/ Pubns$/, ' Publications').
-          gsub('Pub Group', 'Publishing Group').
-          gsub(/Univ( |$)/) { "University#{$1}" }
+        publisher = @hash['dc:publisher']
+
+        if publisher
+          publisher.
+            gsub(/[ ,]+Inc.?$/, '').
+            gsub(/[ ,]+Llc.?$/i, '').
+            gsub(/[ ,]+Ltd.?$/, '').
+            gsub(/Intl( |$)/) { "International#{$1}" }.
+            gsub(/Pr( |$)/) { "Press#{$1}" }.
+            gsub(/ Pub$/, ' Publishers').
+            gsub(/ Pubns$/, ' Publications').
+            gsub('Pub Group', 'Publishing Group').
+            gsub(/Univ( |$)/) { "University#{$1}" }
+        end
       end
 
       def subjects
