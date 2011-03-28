@@ -1,26 +1,24 @@
+require 'google/book/entry'
+
 module Google
   module Book
     class Response
+      include Enumerable
+
       def initialize(hash)
         @feed = hash['feed']
       end
 
-      def to_books
-        return [] if total_results == 0
+      def each(&block)
+        members =
+          if total_results == 0
+            []
+          else
+            [@feed['entry']].flatten
+          end
 
-        [@feed['entry']].flatten.map do |hash|
-          book = Struct.new(
-            Cover.new(hash['link'][0]['href']),
-            hash['link'][1]['href'],
-            hash['link'][2]['href'],
-            [hash['dc:creator']].flatten,
-            hash['dc:date'],
-            hash['dc:description'],
-            [hash['dc:format']].flatten,
-            hash['dc:identifier'],
-            hash['dc:publisher'],
-            hash['dc:subject'],
-            [hash['dc:title']].flatten)
+        members.each do |member|
+          block.call(Entry.new(member))
         end
       end
 

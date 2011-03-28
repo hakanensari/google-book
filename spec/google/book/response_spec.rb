@@ -6,23 +6,23 @@ module Google
       use_vcr_cassette 'google'
 
       it "should set total results" do
-        response = Request.find('deleuze')
+        response = Book.search('deleuze')
         response.total_results.should > 0
       end
 
-      it "should return books" do
-        response = Request.find('deleuze')
-        books = response.to_books
-
-        books.first.should be_a Struct
+      it "should return entries" do
+        response = Book.search('deleuze')
+        response.first.should be_an Entry
       end
 
-      it "should handle single matches" do
-        Request.find('9780826490780').to_books.first.should be_a Struct
+      context "when there is a single match" do
+        it "should return entries" do
+          Book.search('9780826490780').first.should be_an Entry
+        end
       end
 
       it "should handle an empty query" do
-        Request.find('').to_books.should be_empty
+        Book.search('').to_a.should be_empty
       end
     end
   end

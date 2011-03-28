@@ -6,28 +6,28 @@ module Google
       end
 
       def thumbnail
-        cover_url(5)
+        urlify(5)
       end
 
       def small
-        cover_url(1)
+        urlify(1)
       end
 
       def medium
-        cover_url(2)
+        urlify(2)
       end
 
       def large
-        cover_url(3)
+        urlify(3)
       end
 
       def extra_large
-        cover_url(6)
+        urlify(6)
       end
 
       private
 
-      def cover_url(zoom)
+      def urlify(zoom)
         @url.
           gsub('zoom=5', "zoom=#{zoom}").
           gsub('&edge=curl', '')
