@@ -7,6 +7,10 @@ module Google
       def initialize(hash)
         @hash = hash
       end
+      
+      def hash
+        return @hash
+      end
 
       def cover
         Cover.new(@hash['link'][0]['href'])
@@ -53,6 +57,11 @@ module Google
             gsub('Pub Group', 'Publishing Group').
             gsub(/Univ( |$)/) { "University#{$1}" }
         end
+      end
+      
+      def rating
+        rating_hash = @hash['gd:rating']
+        average = rating_hash['average']
       end
 
       def subjects
