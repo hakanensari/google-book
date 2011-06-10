@@ -14,8 +14,11 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = 'google-book'
 
-  s.add_dependency('bookland', '~> 1.0.0')
-  s.add_dependency('httparty', '~> 0.7.4')
+  s.add_dependency('bookland', '~> 1.0')
+  s.add_dependency('httparty', '~> 0.7')
+  s.add_development_dependency('rspec', '~> 2.6')
+  s.add_development_dependency('vcr', '~> 1.10')
+  s.add_development_dependency('webmock', '~> 1.6')
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
