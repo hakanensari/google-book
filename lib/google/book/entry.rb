@@ -4,12 +4,10 @@ require 'google/book/cover'
 module Google
   module Book
     class Entry
+      attr_reader :hash
+
       def initialize(hash)
         @hash = hash
-      end
-      
-      def hash
-        return @hash
       end
 
       def cover
@@ -60,8 +58,7 @@ module Google
       end
       
       def rating
-        rating_hash = @hash['gd:rating']
-        average = rating_hash['average']
+        @hash['gd:rating']['average'].to_f rescue nil
       end
 
       def subjects

@@ -154,6 +154,19 @@ module Google
         end
       end
 
+      describe "#rating" do
+        it "should return a rating" do
+          entry.instance_variable_set(:@hash, {
+            'gd:rating' => {
+              'min'     => '1',
+              'max'     => '5',
+              'average' => '4.44'
+            }
+          })
+          entry.rating.should eql 4.44
+        end
+      end
+
       describe "#title" do
         it "should concatenate titles" do
           entry.instance_variable_set(:@hash, {
